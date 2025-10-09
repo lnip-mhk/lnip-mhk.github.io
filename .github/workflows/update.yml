@@ -19,6 +19,8 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y libjansson-dev
     - name: convert table
       run: cd converter && make && ./cvt
+    - name: configure git
+      run: git config user.email "kruglovasobakalnip.su@gmail.com" && git config --global user.name "негр да"
     - name: stage changed files
       run: git add .
     - name: commit changed files
