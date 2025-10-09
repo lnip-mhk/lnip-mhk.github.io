@@ -15,12 +15,8 @@ jobs:
       run: git remote set-url origin ${{ secrets.ssh }}
     - name: check for changes
       run: git status
-    - name: cd to converter directory
-      run: cd converter
     - name: convert table
-      run: ./cvt
-    - name: cd to root
-      run: cd ..
+      run: cd converter && make && ./cvt
     - name: stage changed files
       run: git add .
     - name: commit changed files
