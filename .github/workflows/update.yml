@@ -1,6 +1,9 @@
 name: Update tables
 
-on: [push]
+on:
+  push:
+    paths:
+      - 'converter/table v1.csv'
 
 jobs:
   update:
