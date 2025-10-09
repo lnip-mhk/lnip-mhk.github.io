@@ -37,6 +37,7 @@ int main() {
         oss << std::put_time(&tm, "%d.%m.%Y %H:%M:%S");
         curTimeString = oss.str();
     }
+    std::cout << "Current time: " << curTimeString << '\n';
 
     std::ifstream infile("./table v1.csv");
     std::string ln;
