@@ -8,6 +8,8 @@
 #include <chrono>
 #include <set>
 #include <jansson.h>
+#include <ctime>
+#include <sstream>
 
 class Quiz {
 public:
@@ -27,6 +29,15 @@ std::string genId(std::string nm) {
 }
 
 int main() {
+    std::string curTimeString;
+    {
+        auto t = std::time(nullptr);
+        auto tm = *std::localtime(&t);
+        std::ostringstream oss;
+        oss << std::put_time(&tm, "%d.%m.%Y %H:%M:%S");
+        curTimeString = oss.str();
+    }
+
     std::ifstream infile("./table v1.csv");
     std::string ln;
     std::getline(infile, ln);
@@ -34,7 +45,7 @@ int main() {
     std::map<std::string, Quiz> qzs;
 
     json_t* rootConfig = json_object();
-    json_object_set_new(rootConfig, "title", json_string("Root"));
+    json_object_set_new(rootConfig, "title", json_string(std::format("Root, last updated {}", curTimeString).c_str()));
     json_object_set_new(rootConfig, "type", json_string("list"));
     json_object_set_new(rootConfig, "uuid", json_string("root"));
     json_t* rootListItems = json_array();
