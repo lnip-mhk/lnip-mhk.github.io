@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>так да</title>
+        <link rel="stylesheet" href="./index.css">
+        <script src="./main.js"></script>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=0.6"/> -->
+    </head>
+    <body>
+        <div class="header">
+            <img class="header_btn_back" src="./back_arrow.png" onclick="backButtonClick()"/>
+            <img class="header_btn_fullscreen" src="./fullscreen.png" onclick="fullscreenButtonClick()"/>
+            <img class="header_btn_settings" src="./settings.png" onclick="settingsButtonClick()"/>
+            <a href="https://docs.google.com/spreadsheets/d/1cNcMeeWImguLDqEAZguvbIIjvil-_BUSNhsAF0ZSiVc/edit?usp=sharing" class="header_btn_settings">
+                Методичка
+            </a>
+            <span class="header_title">Да,</span>
+        </div>
+        <div class="content">
+            <div class="selector_container">
+                
+            </div>
+
+            <div class="prequiz_container">
+                <div class="prequiz_row">
+                    <span class="prequiz_header">Да,</span>
+                </div>
+                <div class="prequiz_row prequiz_row_image">
+                    <img class="prequiz_cover" src=""/>
+                </div>
+                <div class="prequiz_row">
+                    <button class="prequiz_start_btn" onclick="startQuiz()">Начать тест</button>
+                </div>
+            </div>
+
+            <div class="quiz_container">
+                <div class="quiz_row">
+                    <span class="quiz_header">Да,</span>
+                </div>
+                <div class="quiz_row quiz_row_img">
+                    <img class="quiz_question_image" style="display: none;" src=""/>
+                    <video class="quiz_question_video" style="display: none;" src=""></video>
+                </div>
+                <div class="quiz_row" style="min-height: 138px; max-height: 138px; height: 138px;">
+                    <table class="quiz_buttons">
+                        <tr>
+                            <td><button class="quiz_button" id="quiz_button_1" onclick="quizBtnClick(event.target)">1</button></td>
+                            <td><button class="quiz_button" id="quiz_button_2" onclick="quizBtnClick(event.target)">2</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="quiz_button" id="quiz_button_3" onclick="quizBtnClick(event.target)">3</button></td>
+                            <td><button class="quiz_button" id="quiz_button_4" onclick="quizBtnClick(event.target)">4</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button class="quiz_button quiz_button_on" id="quiz_button_ans" onclick="quizBtnClick(event.target)">Ответить на вопрос</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="wa_overlay_container">
+            <div class="wa_overlay">
+                <span class="wa_overlay_header">Неправильно</span>
+                <span class="wa_overlay_text">да</span>
+                <button class="quiz_button" id="wa_overlay_close_btn" onclick="hideWAOverlay(event.target)">Попробовать снова</button>
+            </div>
+        </div>
+
+        <div class="settings_overlay_container">
+            <div class="settings_overlay">
+                <span class="settings_overlay_header">Настройки</span>
+                <span class="settings_overlay_text">Да</span>
+                <button class="quiz_button" id="settings_overlay_reset_btn" onclick="resetAllSettings(event.target)">Сбросить все</button>
+                <button class="quiz_button" id="settings_overlay_close_btn" onclick="hideSettingsOverlay(event.target)">Назад</button>
+            </div>
+        </div>
+    </body>
+</html>
