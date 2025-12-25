@@ -57,12 +57,21 @@ int main() {
         size_t idx = 0;
         // std::cout << "зайцева,, " << ln << '\n';
         while(true) {
-            size_t nxt = ln.find(";", idx);
-            if(nxt > ln.size()) nxt = ln.size();
-            // std::cout << idx << ' ' << nxt << '\n';
-            tokens.push_back(ln.substr(idx, nxt - idx));
-            if(nxt == ln.size()) break;
-            idx = nxt + 1;
+            if(ln[idx] == '\"') {
+                size_t nxt = ln.find("\",", idx);
+                if(nxt > ln.size()) nxt = ln.size();
+                // std::cout << idx << ' ' << nxt << '\n';
+                tokens.push_back(ln.substr(idx + 1, nxt - idx - 1));
+                if(nxt == ln.size()) break;
+                idx = nxt + 2;
+            } else {
+                size_t nxt = ln.find(",", idx);
+                if(nxt > ln.size()) nxt = ln.size();
+                // std::cout << idx << ' ' << nxt << '\n';
+                tokens.push_back(ln.substr(idx, nxt - idx));
+                if(nxt == ln.size()) break;
+                idx = nxt + 1;
+            }
         }
         if(tokens.size() != 6) continue;
 
