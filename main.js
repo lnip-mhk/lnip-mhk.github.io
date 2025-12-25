@@ -51,7 +51,7 @@ let choiceList = [];
 let curQuestionAnswers = [];
 
 function buildByUUID(uuid) {
-    fetch(`assets/configs/${uuid}.json`).then(function(response) {
+    fetch(`assets/configs/${uuid}.json`, {cache: 'no-cache'}).then(function(response) {
         response.json().then(function(obj) {
             if(obj.type == 'list') {
                 setEnabledPanel('selector');
