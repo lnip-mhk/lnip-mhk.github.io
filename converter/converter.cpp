@@ -73,7 +73,7 @@ int main() {
                 idx = nxt + 1;
             }
         }
-        if(tokens.size() != 6) continue;
+        if(tokens.size() < 6) continue;
 
         for(int i = 0; i < tokens.size(); i++) {
             while(tokens[i].size() && tokens[i].back() == ' ') tokens[i].pop_back();
